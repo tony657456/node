@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <script>
+     const hi = function(){
+         console.log('안녕하세요');
+     };
+     
+     const clearInter =function(){
+         console.log('hi함수가 중지되었습니다');
+         clearInterval(si);
+     }
+
+     const  si= window.setInterval(hi, 5000); //2초마다 hi함수를 호출
+     //setInterval(실행문,3000) 3초를 간격으로 실행
+    </script>
+    <button onclick = "clearInter()">자동실행중지</button>
+</body>
+</html>

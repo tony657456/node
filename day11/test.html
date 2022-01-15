@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h2>노드의 생성</h2>
+    <p id="el">새로운 문장이 이 문장 앞에 추가됩니다</p>
+    <p id="attr">이 단락에 새로운 속성이 추가됩니다</p>
+    <p id="text"></p>
+
+    <button onclick="createNode()">요소 노드 생성</button>
+    <button onclick="createAttr()">요소 노드 생성</button>
+    <button onclick="createText()">요소 노드 생성</button>
+
+
+        const createNode = function(){
+            const elNode = document.getElementById('el');
+            const newNode = document.createElement('p');
+            newNode.innerHTML="<b>새로운 요소입니다</b>"
+            document.body.insertBefore(newNode, elNode);
+        }
+
+        const createAttr = function() {
+            const attr = document.getElementById('attr');
+            const newAttr = document.createAttribute('style');
+            newAttr.value = 'color:white; background-color:deeppink;';
+            attr.setAttributeNode(newAttr);
+        }
+
+        const createText = () => {
+            const textNode = document.getElementById('text');
+            const newText = document.createTextNode('새로운 텍스트입니다.');
+            textNode.appendChild(newText);
+        } -->
+        <!-- <h2>노드의 삭제</h2>
+        <div id="list">
+            <p>HTML</p>
+            <p id="item">CSS</p>
+            <p id="js" style="background-color: deeppink; color:white;">javaScript</p>
+        </div> 
+
+        <button onclick="removeNode()">요소 노드 삭제</button>
+        <button onclick="removeAttr()">속성 노드 삭제</button> -->
+
+        <!-- <h2>노드의 교체</h2>
+
+        <div id="parent">
+            <p id="first">김사과</p>
+            <p>오렌지</p>
+            <p>반하다</p>
+        </div>
+        <p id="second">이메론</p>
+        <hr/>
+        <p id="text">제가 좋아하는 과일은 사과입니다.</p>
+
+        <button onclick="changeNode()">요소 노드 교체</button>
+        <button onclick="changeText()">텍스트 노드 교체</button> -->
+        <script>
+            'use strict'
+            // const removeNode = function(){
+            //     const parent = document.getElementById('list');
+            //     const removeItem = document.getElementById('item');
+            //     const result = parent.removeChild(removeItem);
+            //     console.log(result);
+            // }
+
+            // const removeAttr = () => {
+            //     const js = document.getElementById('js');
+            //     js.removeAttribute('style');
+            // }
+
+            // const changeNode = () => {
+            //     const parent = document.getElementById('parent');
+            //     const first = document.getElementById('first');
+            //     const second = document.getElementById('second');
+            //     parent.replaceChild(second, first);
+            // }
+
+            // const changeText = () => {
+            //     const text = document.getElementById('text').firstChild;
+            //     text.replaceData(12, 5, '메론이었나');
+            //     //replaceData(글자위치,수정할글자수,'수정할 내용');
+            // }
+            
+</script>  
+</body>
+</html>

@@ -1,0 +1,22 @@
+node.js 다운로드
+https://nodejs.org
+(LTS버전 다운로드)
+
+node.js 버전 확인
+cmd 창에서 node -v 명령어로 확인합니다.
+
+npm 버전 확인
+cmd 창에서 npm -v 명령어로 확인합니다.
+
+package.json 파일 만들기
+모듈을 관리하는 설정파일
+/*
+nodejs가 필요한 것들을 준비
+json - 자료공유한다면 데이터베이스를 공유를 할수 있는 언어 
+*/
+
+npm init : 옵션을 직접 제공
+npm init -y : 기본값을 기준으로 바로 생성
+
+node.js 실행하는 방법
+node 파일이름

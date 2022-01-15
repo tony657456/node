@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드교체</title>
+</head>
+<body>
+<!-- 
+[노드(node)]
+
+HTML DOM은 노드라고 불리는 계층적 단위에 정보를 저장합니다. 
+HTML DOM은 노드들을 정의하고 그 사이의 관계를 설명해주는 역할을 합니다. 
+HTML 문서의 정보는 노드트리라고 불리는 계층적 구조에 저장됩니다. 
+노드트리는 최상위 레벨인 루트 노드로부터 시작하고, 
+가장 낮은 레벨인 텍스트 노드까지 내려갑니다. 
+HTML DOM을 이용하여 노트 트리에 포함된 모든 노드에 접근할 수 있습니다. 
+
+노드의 종류
+문서 노드(document node) : 문서 전체를 나타내는 노드
+요소 노드(element node) : HTML 요소(태그)의 노드, 속성 노드를 포함하는 유일한 노드
+속성 노드(attribute node) : HTML 요소의 속성, 요소 노드에 관한 정보를 가지고 있음 
+텍스트 노드(text node) : HTML 모든 텍스트
+주석 노드(comment node) : HTML 모든 주석
+
+
+노드간의 관계
+parentNode : 부모 노드
+childNodes : 자식 노드 리스트
+firstChild : 첫번째 자식 노드
+lastChild : 마지막 자식 노드
+nextSibling : 다음 형제 노드
+previousSibling : 이전 형제 노드
+
+노드 추가
+appendChild() : 새로운 노드를 해당 노드의 자식 노드 리스트 맨 마지막에 추가
+insertBefore() : 새로운 노드를 특정 자식 노드 바로 앞에 추가
+insertData() : 새로운 노드를 텍스트 데이터에 새로운 텍스트로 추가
+
+노드 생성
+createElement() : 새로운 요소 노드를 만듬
+createAttribute() : 새로운 속성 노드를 만듬
+createTextNode() : 새로운 텍스트 노드를 만듬
+
+노드 제거
+removeChild() : 자식 노드 리스트에서 특정 자식 노드를 제거. 성공적으로 노드가 제거되면 노드를 리턴. 노드가 제거될 때 제거되는 노드의 모든 자식들도 다같이 제거
+removeAttribute() : 속성의 이름을 이용하여 특정 속성 노드를 제거
+
+노드 복제
+cloneNode() : 기존의 존재하는 노드와 동일한 새로운 노드를 생성
+
+[복제할 노드].cloneNode(자식노드 복제여부);
+자식노드 복제여부 : 전달될 값이 true면 복제되는 노드의 모든 속성과 자식 노드도 함께 복제되고, false면 속성 노드만 복제하고 자식 노드는 복제하지 않음
+
+노드 교체
+replaceChild() : 기존의 요소 노드를 새로운 요소 노드로 교체할 수 있음
+replaceData() : 텍스트 노드의 텍스트 데이터를 교체할 수 있음
+ -->
+ <h2>노드의 교체</h2>
+
+  <div id="parent">
+    <p id="first">댕사과</p>
+    <p>orange</p>
+    <p>kiwi</p>
+  </div>
+  <p id="second">댕멜론</p>
+  <hr>
+  <p id="text">제가 좋아하는 과일은 사과입니다</p>
+
+  <button onclick="changeNode()">요소노드교체</button>
+  <button onclick="changeText()">텍스트노드교체</button>
+  <script>
+    'use strict'
+    const changeNode = function(){
+      const parent = document.getElementById('parent');
+      const first = document.getElementById('first');
+      const second = document.getElementById('second');
+        parent.replaceChild(second,first);
+    }
+    const changeText = function(){
+      const text = document.getElementById('text').firstChild;
+      text.replaceData(12,2,'메론');
+      // text.replaceData(글자위치,글자수,'수정할내용');
+      
+    }
+  </script>
+ 
+</body>
+</html>

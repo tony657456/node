@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+예외 처리(Exception)
+프로그램이 실행되고 있는 런타임시에 에러가 발생할 경우 처리할 수 있는 프로그램 구간을 의미합니다.
+
+try {
+    예외 상황이 발생할 수 있는 문장
+    ....
+    ....
+}catch(e){
+    예외 상황이 발생했을 경우 처리할 문장(e는 Exception 객체)
+}finally{
+    예외 상황이 발생하거나 발생하지 않아도 무조건 실행될 문장(생략가능)
+}
+
+-->
+
+ <script>
+   //일반적인 예외 처리
+  
+   function wait(sec){
+       return new Promise((resolve, reject)=>{
+           setTimeout(()=>{
+               reject('error!')
+           },sec*1000);
+       });
+   }
+   
+//    wait(3).catch( e=>{
+//        console.log('1set catch', e);
+//    });
+
+
+  /* chain은 같은 객체를 리턴할 때만 가능하다.*/
+//    wait(3).catch(e=>{
+//        console.log('1set catch', e);
+//    })//wait함수의 에러를 받음
+//    .catch( e=>{
+//      console.log('1set catch', e);
+//    })// 위 catch 구문의 상태를 받음. 에러를 잘 받았으므로 에러가 발생하지 X
+
+  
+   /* chain을 하고 싶을때.*/
+   wait(3).catch((e)=>{
+       console.log('1set catch', e);
+       throw e 
+   })
+   .catch((e)=>{
+     console.log('1set catch', e);
+   })
+
+ </script>
+</body>
+</html>

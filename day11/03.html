@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드추가</title>
+</head>
+<body>
+<!-- 
+* 동기와 비동기
+프로그램이 동작하는 상태에서 완전히 해당 내용을 끝내고 다음으로 제어를 넘기는 방식을 동기식, 
+동작이 끝나지 않은 상태에서도 제어권을 넘긴 후 프로그램을 계속 진행하면 비동기식이라고 합니다.
+
+예외 처리(Exception)
+프로그램이 실행되고 있는 런타임시에 에러가 발생할 경우 처리할 수 있는 프로그램 구간을 의미합니다.
+
+try {
+    예외 상황이 발생할 수 있는 문장
+    ....
+    ....
+}catch(e){
+    예외 상황이 발생했을 경우 처리할 문장(e는 Exception 객체)
+}finally{
+    예외 상황이 발생하거나 발생하지 않아도 무조건 실행될 문장(생략가능)
+}
+ -->
+ <h2>동기와 비동기_비동기식</h2>
+ 
+ <script>
+   'use strict';
+    
+   setTimeout(function(){
+       console.log('todo: First work!');
+   },3000);
+
+   setTimeout(function(){
+       console.log('todo: Second work!');
+   },2000);
+
+   // 결과 
+    // todo: Second work!
+    // todo: First work!
+ </script>  
+</body>
+</html>

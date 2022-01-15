@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f2(){
+            console.log("f2 시작");
+            throw new Error("에러남");
+            console.log("f2 끝");
+        }
+
+        function f1(){
+            console.log("f1 시작")
+            try {
+                f2();
+            } catch(e) {
+                console.log(e);
+            }
+            console.log("f1 끝")
+        }
+
+        f1();
+
+
+    </script>
+</body>
+</html>

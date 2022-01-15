@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+예외 처리(Exception)
+프로그램이 실행되고 있는 런타임시에 에러가 발생할 경우 처리할 수 있는 프로그램 구간을 의미합니다.
+
+try {
+    예외 상황이 발생할 수 있는 문장
+    ....
+    ....
+}catch(e){
+    예외 상황이 발생했을 경우 처리할 문장(e는 Exception 객체)
+}finally{
+    예외 상황이 발생하거나 발생하지 않아도 무조건 실행될 문장(생략가능)
+}
+
+-->
+
+ <script>
+//async/await의 예외 처리 1
+
+ async function myasyncFunc(){
+     return 'done';
+ }
+
+ const result = myasyncFunc();//함수 호출이면서도 반환
+ console.log(result);// 함수오류에 발생하지않았다면 실행성공
+  
+
+//async/await의 예외처리 2 
+//Promis와 동일하게 예외처리
+// async function myAsyncFunc() {//자바스크립트내에서 에러가 아니고 가상으로 에러 발생, 일반적인 에러 발생
+//     throw 'myAsyncFunc Error!';
+// }
+
+// function myPromiseFunc() {//Promise를 이용
+//     return new Promise((resolve, reject) => {//에러가 발생했다는 가상 reject사용
+//         reject('myPromiseFunc Error!');
+//     });
+// }
+
+// myAsyncFunc().catch((e) => {
+//     console.log(e);
+// });
+
+// myPromiseFunc().catch((reject) => {
+//     console.log(reject);
+// })
+
+
+//async/await의 예외처리 3
+// function wait(sec){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             // resolve("정상이야!");
+//             reject("error!!");
+//         }, sec * 2000);
+//     });
+// }
+
+
+
+// // async function myFunc() {
+// //     console.log(new Date());
+// //     try {
+// //         await wait(1);
+// //     } catch (e) {
+// //         console.log(e);
+// //     }
+// // }
+
+// // myFunc();
+
+
+// //async/await의 예외처리 4
+
+// async function myAsyncFunc() {
+//     console.log(new Date()); 
+    
+//     const result = await wait(2).catch(e => {
+//         console.error(e)
+//     });
+//     console.log(new Date());
+// }
+
+//  myAsyncFunc();// => O
+// catch(e) Promise에 대한 오류만 잡기 때문에 현재 오류상태로 표시 됩니다
+ </script>
+</body>
+</html>
