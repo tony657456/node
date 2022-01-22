@@ -1,0 +1,44 @@
+Nodemon
+서버 코드를 변경할 때마다 서버를 재시작하도록 하는 모듈
+npm install -g nodemon
+-g: 글로벌 설치
+
+"scripts": {
+    "start": "nodemon 06-4.js"
+  },
+
+npm start 라고 실행하고 그다음부터는 저장하기만 해도 서버열지않고 업데이트됨
+
+
+body-parser(post방식)
+설치 npm i body-parser
+
+
+node.js
+const userid = req.query.userid;
+http://localhost:3000/?userid=apple
+
+query : 클라이언트에서 GET방식으로 전송한 요청 파라미터를 확인합니다.
+body : 클라이언트에서 POST방식으로 전송한 요청 파라미터를 확인합니다.
+(단, post방식을 통한 요청 파라미터를 확인하려면 body-parser와 같은 모듈을 사용해야합니다.)
+
+const userid = req.body.userid;
+
+
+포스트맨 다운로드
+https://www.postman.com/downloads/
+
+
+Router 미들웨어
+사용자의 다양한 요청이 들어왔을때 use() 메소드로 설정한 미들웨어가 항상 호출되는 불편한점이 있습니다. 
+이를 해결하고자 사용하는 미들웨어가 Router 미들웨어입니다.
+
+Router 객체 만들기
+const 라우터객체 = express.Router();
+
+http://localhost:3000/member/login
+라우터객체.route(요청패스).get(실행할 함수);
+라우터객체.route(요청패스).post(실행할 함수);
+
+익스프레스에 Router 객체 적용
+app.use('/', 라우터객체);
