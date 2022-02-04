@@ -5,7 +5,7 @@ const port = 3000;
 app.use((req, res) =>{
  console.log('첫번째 미들웨어 실행');
 
- console.dir(req.header)
+ console.dir(req.header);
  const userAgent = req.header('User-Agent');
  console.log(userAgent);
 

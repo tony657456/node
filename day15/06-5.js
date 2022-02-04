@@ -6,8 +6,7 @@ const port = 3000;
 
 const router = express.Router();
 
-app.use(bodyParser.urlencoded({ extended: false}));
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 // http://localhost:3000/member/login -> post
 router.route('/member/login').post((req, res) => {

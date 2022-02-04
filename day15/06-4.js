@@ -20,6 +20,6 @@ app.use((req, res) => {
 });
 
 
-app.listen( port, () => {
+app.listen(port, () => {
     console.log(`${port} 포트로 서버 실행중...`);
 })

@@ -1,0 +1,70 @@
+
+Model View Controller
+
+Model: 데이터베이스
+View : 보이는 부분(html,자바스크립트)
+Controller : 로직,,,,연산결과 노드의 명령
+
+
+[EJS(Embedded JavaScript) 모듈]
+EJS 모듈은 템플릿 엔진 모듈입니다. 
+템플릿  엔진 모듈은 특정한 형식인 파일로 부터 HTML 페이지를 생성하는 모듈입니다.
+
+설치 npm i ejs
+
+EJS 파일 형식의 특수 코드
+<%~ ~~ code ~~~~ %> : 자바스크립트 코드를 입력하는 영역입니다.
+<%=변수 또는 값%> : 데이터를 출력합니다.
+<%-변수 또는 객체%> : ejs파일 전체를 전달합니다.
+
+EJS 데이터를 전달
+render() : 메소드의 매개 변수에 전달하고자 하는 데이터를 입력하여 전달합니다.
+ejs.render(data);
+
+
+[PUG(구 jade)]
+http://jade-lang.com/
+
+
+numjucks
+https://www.npmjs.com/package/nunjucks
+
+
+
+[Node.js에서 메일 보내기]
+nodemailer 모듈
+gmail 서버를 이용하여 메일을 보낼 수 있습니다
+
+
+1. 메일보내기하기전에 설정해야 하는부분
+
+보안 수준이 낮은 앱의 액세스
+https://myaccount.google.com/lesssecureapps
+
+계정 액세스 사용을 허용
+https://accounts.google.com/DisplayUnlockCaptcha
+
+2.
+onst nodemailer객체명 = nodemailer.createTransport({
+    service: 'Gmail',
+    auth:{
+        user: 'gmail 계정',
+        pass: '비밀번호'
+    },
+    host: 'smtp.mail.com',
+    port: '465'
+});
+
+
+메일 발송 옵션 설정
+
+const 메일발송옵션객체명 = {
+    from: "이름<메일주소>",
+    to: "이름<메일주소>",
+    subject: "제목",
+    text: "내용"
+    (html: "HTML코드")
+}
+
+
+
