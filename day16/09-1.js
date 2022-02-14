@@ -21,11 +21,6 @@ router.route('/about').post((req,res) => {
     });
 })
 
-
-
-
-
-
 app.use('/', router);
 
 app.all('*', (req, res) => {

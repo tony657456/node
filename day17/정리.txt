@@ -1,0 +1,94 @@
+Router 미들웨어
+사용자의 다양한 요청이 들어왔을때 use() 메소드로 설정한 미들웨어가 항상 호출되는 불편한점이 있습니다. 
+이를 해결하고자 사용하는 미들웨어가 Router 미들웨어입니다.(서브페이지)
+
+Router 객체 만들기
+const 라우터객체 = express.Router();
+
+
+
+EJS(Embedded JavaScript) 모듈
+EJS 모듈은 템플릿 엔진 모듈입니다. 
+템플릿  엔진 모듈은 특정한 형식인 파일로 부터 HTML 페이지를 생성하는 모듈입니다.
+
+설치 npm i ejs
+
+EJS 파일 형식의 특수 코드
+<% ~~~ code ~~~~ %> : 자바스크립트 코드를 입력하는 영역입니다.
+<%=변수 또는 값%> : 데이터를 출력합니다.
+<%-변수 또는 객체%> : ejs파일 전체를 전달합니다.
+
+EJS 데이터를 전달
+render() : 메소드의 매개 변수에 전달하고자 하는 데이터를 입력하여 전달합니다.
+ejs.render(data);
+
+
+
+
+
+1사용자 정의 모듈
+사용자가 직접 만들어 코드를 관리할 수 있도록 작성하는 모듈입니다.
+
+module.exports = () => {
+    모듈내의 코드
+    ...
+    ...
+}
+
+사용
+const 객체명 = require('파일명');
+
+2. 모듈 작성
+모듈내의 코드
+...
+...
+module.export = 변수;
+
+사용
+const 객체명 = require('변수명');
+
+
+
+
+JSON(JavaScript Object Notation)
+데이터를 교환하고 저장하기 위해 만들어진 텍스트 기반의 데이터 교환 표준입니다.
+
+
+객체
+{
+  "name":"김사과",
+  "gender":"여자",
+  "age":20,
+  "job":"학생",
+  "height":155.5, 
+  "hobby":[
+        "드라이브",
+        "쇼핑",
+        "영화감상"
+  ],
+  "dog":null
+}
+
+
+배열
+{
+"student":[
+  {"name":"김사과", "gender":"여자"},
+  {"name":"오렌지", "gender":"남자"},
+  {"name":"반하나", "gender":"여자"}
+]
+}
+
+JSON 문법 검증
+https://jsonlint.com/
+
+[MDN]
+https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON
+
+JSON.parse()
+JSON 포맷으로 되어 있는 문자열을 JSON 객체로 변환
+JSON.parse(String 문자열)
+
+JSON.stringify()
+JSON 객체를 JSON 포맷의 문자열로 변환
+JSON.stringify(JSON 객체)
