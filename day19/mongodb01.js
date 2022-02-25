@@ -135,6 +135,38 @@ router.route('/member/edit').post((req, res) => {
     }
 });
 
+router.route('/member/delete').post((req,res) => {
+    console.log('/member/delete 호출!');
+    const userid = req.body.userid;
+    console.log(`userid: ${userid}`);
+
+    // 데이터베이스 연결 여부를 확인한 예외 처리부분
+    if(database){
+        // 에러가 발생하지 않았다면
+        deleteMember(database, userid, (err, result) => {
+            // 미들웨어에서 오류가 발생했는지 여부 판단
+            if(!err){
+                if(result.deletedCount > 0) {
+                    res.writeHead(200, {'content-type':'text/html;charset=utf8'});
+                    res.write('<h2>회원정보 삭제 성공!!</h2>');
+                    res.write('<p>회원정보 삭제 성공!!</p>');
+                    res.end();
+                }
+            }else{
+                res.writeHead(200, {'content-type':'text/html;charset=utf8'});
+                res.write('<h2>회원정보 삭제 실패!!</h2>');
+                res.write('<p>회원정보 삭제 실패!!</p>');
+                res.end();
+            }
+        })
+    }else{
+        // 에러가 발생
+        res.writeHead(200, {'content-type':'text/html;charset=utf8'});
+        res.write('<h2>데이터베이스 연결 실패</h2>');
+        res.end();
+    }
+})
+
 const joinMember = (database, userid, userpw, username, age, callback) => {
     console.log('joinMember 호출!');
     const members= database.collection('member');
@@ -193,6 +225,27 @@ const editMember = (database, userid, userpw, username, age, callback) => {
         }
     })
 }
+
+// 회원삭제
+const deleteMember = (database, userid, callback) => {
+    console.log('deleteMember 호출');
+    const members = database.collection('member');
+    // deleteOne을 사용하면 deletedCount(삭제갯수) 생성
+    members.deleteOne({userid:userid}, (err, result) => {
+        if(!err){
+            if(result.deletedCount > 0){
+                console.log(`삭제된 갯수는 ${result.deletedCount}입니다.`)
+            }else{
+                console.log('삭제된 document 없음')
+            }
+            callback(null, result);
+            return;
+        }else{
+            console.log(err);
+            callback(err);
+        }
+    });
+};
 
 app.use("/", router);
 
